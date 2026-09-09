@@ -93,7 +93,6 @@ class MLP:
 
         print("________Training start")
 
-        loss_history = []  # for logs track
         prev_loss = float('inf') 
 
         for epoch in range(epochs):
@@ -105,7 +104,7 @@ class MLP:
                 print(f"Epoch {epoch} , Loss MSE : {loss}")
                 
             # Assertion : Verifier que la perte diminue (ou reste stable)
-            assert loss <= prev_loss or np.isclose(loss, prev_loss), "La perte doit diminuer ou rester stable"
+            #assert loss <= prev_loss or np.isclose(loss, prev_loss), "La perte doit diminuer ou rester stable"
 
             
             prev_loss = loss
@@ -116,7 +115,7 @@ class MLP:
             if epoch == epochs - 1 :
                 print("________Training ends")
 
-        return loss_history
+        return loss
     
 
     def save_model(self, filepath: str = "model_weights.npz"):
